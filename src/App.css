@@ -2,6 +2,38 @@
   text-align: center;
 }
 
+#header {
+  background-color: rgb(168, 168, 168);
+  border-radius: 10px;
+}
+
+#chooseDice {
+  background-color: rgb(212, 212, 212);
+  border-radius: 10px;
+}
+
+#toRoll {
+  background-color: rgb(85, 85, 255);
+  border-radius: 10px;
+}
+
+.dice {
+  display: inline;
+}
+
+h3 {
+  display: inline;
+}
+img {
+  height: 10%;
+  width: 10%;
+}
+
+.btn {
+  margin: 1%;
+  display: inline;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
