@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import Dice from "./components/Dice";
-import DiceImage from "./components/DiceImage";
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class App extends Component {
     };
   }
 
-  updateValue() {
+  componentDidMount() {
     setInterval(() => {
       if (this.state.json) {
         var totalValue = this.state.json.reduce((a, b) => {
@@ -30,11 +29,9 @@ class App extends Component {
   }
 
   fetchDice = () => {
-    this.updateValue();
     fetch("http://roll.diceapi.com/json" + this.state.selectedNumberOfDice)
       .then(res => res.json())
-      .then(data => this.setState({ json: data.dice }))
-      .then(this.updateValue());
+      .then(data => this.setState({ json: data.dice }));
   };
 
   handleDice = die => {
@@ -66,7 +63,7 @@ class App extends Component {
                 <Dice
                   alt={die}
                   src={"./dice/D" + die + ".png"}
-                  onPlick={() => this.handleDice(die)}
+                  onClick={() => this.handleDice(die)}
                   die={die}
                   key={index}
                 />
@@ -86,7 +83,7 @@ class App extends Component {
 
             {this.state.diceToDraw.map((die, index) => {
               return (
-                <DiceImage
+                <Dice
                   onClick={() => {
                     this.deleteDie(index);
                   }}
